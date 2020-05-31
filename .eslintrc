@@ -1,0 +1,57 @@
+{
+  "extends": [
+    "plugin:prettier/recommended",
+    "airbnb",
+    "plugin:@typescript-eslint/recommended",
+    "prettier/@typescript-eslint",
+    "prettier"
+  ],
+  "parser": "@typescript-eslint/parser",
+  "plugins": ["@typescript-eslint"],
+  "env": {
+    "node": true,
+    "es6": true,
+    "browser": true,
+    "jest": true
+  },
+  "rules": {
+    "prettier/prettier": "error",
+    "implicit-arrow-linebreak": "off",
+    "comma-dangle": "off",
+    "indent": "off",
+    "react/jsx-wrap-multilines": "off",
+    "no-trailing-spaces": "off",
+    "react/jsx-filename-extension": [2, {
+      "extensions": [
+        ".js",
+        ".jsx",
+        ".ts",
+        ".tsx"
+      ]
+    }],
+    "import/no-extraneous-dependencies": [
+      "error",
+      {
+        "devDependencies": true
+      }
+    ],
+    "import/prefer-default-export": "off",
+    "camelcase": "off",
+    "@typescript-eslint/camelcase": "off",
+    "react/jsx-props-no-spreading": "off",
+    "react/jsx-curly-newline" : "off",
+    "object-curly-newline": "off",
+    "arrow-parens": "off",
+    "function-paren-newline": "off",
+    "import/extensions": "off",
+    "react/prop-types": "off",
+    "no-console": "off",
+  },
+  "settings": {
+    "import/resolver": {
+      "node": {
+        "extensions": [".js",".jsx",".tsx", ".ts"]
+      }
+    }
+  }
+}

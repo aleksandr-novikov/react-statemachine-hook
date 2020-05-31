@@ -1,0 +1,65 @@
+{
+  "name": "react-statemachine-hook",
+  "version": "1.0.0",
+  "description": "State Machine Hook for React",
+  "main": "dist/build.js",
+  "module": "dist/build.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "start": "serve",
+    "build": "rollup -c",
+    "lint": "eslint 'src/**/*.ts?(x)'",
+    "lint:fix": "npm run lint --fix",
+    "test": "jest --config=./jest.config.js --passWithNoTests",
+    "test:watch": "jest --config=./jest.config.js --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aleksandr-novikov/react-statemachine-hook.git"
+  },
+  "author": "Aleksandr Novikov <a.novikov@me.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/aleksandr-novikov/react-statemachine-hook/issues"
+  },
+  "homepage": "https://github.com/aleksandr-novikov/react-statemachine-hook#readme",
+  "peerDependencies": {
+    "react": "^16.9.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.10.2",
+    "@babel/preset-env": "^7.10.2",
+    "@babel/preset-react": "^7.10.1",
+    "@babel/preset-typescript": "^7.10.1",
+    "@rollup/plugin-commonjs": "^12.0.0",
+    "@typescript-eslint/eslint-plugin": "^3.0.2",
+    "@typescript-eslint/parser": "^3.0.2",
+    "enzyme": "^3.11.0",
+    "eslint": "^7.1.0",
+    "eslint-config-airbnb": "^18.1.0",
+    "eslint-config-prettier": "^6.11.0",
+    "eslint-plugin-import": "^2.20.2",
+    "eslint-plugin-jsx-a11y": "^6.2.3",
+    "eslint-plugin-prettier": "^3.1.3",
+    "eslint-plugin-react": "^7.20.0",
+    "eslint-plugin-react-hooks": "^4.0.4",
+    "jest": "^26.0.1",
+    "prettier": "^2.0.5",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "rollup": "^2.12.0",
+    "rollup-plugin-babel": "^4.4.0",
+    "rollup-plugin-terser": "^6.1.0",
+    "rollup-plugin-typescript2": "^0.27.1",
+    "serve": "^11.3.1",
+    "typescript": "^3.9.3"
+  },
+  "keywords": [
+    "statemachine",
+    "state machine hook",
+    "deterministic finite automata",
+    "finite state macnine",
+    "react",
+    "hook"
+  ]
+}
