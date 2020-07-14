@@ -2,22 +2,30 @@ import babel from 'rollup-plugin-babel';
 import typescript from 'rollup-plugin-typescript2';
 import commonjs from '@rollup/plugin-commonjs';
 import { terser } from 'rollup-plugin-terser';
+import replace from 'rollup-plugin-replace';
 import pkg from './package.json';
 
 export default {
-  input: 'src/index.ts',
+  input: 'src/index.tsx',
   output: [
     {
       file: pkg.main,
-      exports: 'named',
-      format: 'es',
+      format: 'iife',
       sourcemap: true,
+      globals: {
+        react: 'React',
+        'react-dom': 'ReactDOM',
+      },
     },
     {
       file: pkg.module,
       exports: 'named',
       format: 'es',
       sourcemap: true,
+      globals: {
+        react: 'React',
+        'react-dom': 'ReactDOM',
+      },
     },
   ],
   external: [
@@ -34,8 +42,9 @@ export default {
       exclude: 'node_modules/**',
       extensions: ['.js', '.ts', '.tsx'],
     }),
-    commonjs({
-      include: 'node_modules/**',
+    commonjs(),
+    replace({
+      'process.env.NODE_ENV': JSON.stringify('production'),
     }),
     terser(),
   ],

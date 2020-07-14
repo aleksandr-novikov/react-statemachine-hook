@@ -7,7 +7,8 @@
   "types": "dist/index.d.ts",
   "scripts": {
     "start": "serve",
-    "build": "rollup -c",
+    "build:dev": "rollup -c --f iife",
+    "build": "rollup -c --f es",
     "lint": "eslint 'src/**/*.ts?(x)'",
     "lint:fix": "npm run lint --fix",
     "test": "jest --config=./jest.config.js --passWithNoTests",
@@ -32,6 +33,9 @@
     "@babel/preset-react": "^7.10.1",
     "@babel/preset-typescript": "^7.10.1",
     "@rollup/plugin-commonjs": "^12.0.0",
+    "@rollup/plugin-node-resolve": "^8.4.0",
+    "@types/react": "^16.9.43",
+    "@types/react-dom": "^16.9.8",
     "@typescript-eslint/eslint-plugin": "^3.0.2",
     "@typescript-eslint/parser": "^3.0.2",
     "enzyme": "^3.11.0",
@@ -44,14 +48,16 @@
     "eslint-plugin-react": "^7.20.0",
     "eslint-plugin-react-hooks": "^4.0.4",
     "jest": "^26.0.1",
+    "npm": "^6.14.6",
     "prettier": "^2.0.5",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "rollup": "^2.12.0",
     "rollup-plugin-babel": "^4.4.0",
+    "rollup-plugin-replace": "^2.2.0",
     "rollup-plugin-terser": "^6.1.0",
     "rollup-plugin-typescript2": "^0.27.1",
-    "serve": "^11.3.1",
+    "serve": "^11.3.2",
     "typescript": "^3.9.3"
   },
   "keywords": [
@@ -61,5 +67,6 @@
     "finite state macnine",
     "react",
     "hook"
-  ]
+  ],
+  "dependencies": {}
 }
