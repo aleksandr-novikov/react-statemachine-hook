@@ -45,7 +45,7 @@
     "function-paren-newline": "off",
     "import/extensions": "off",
     "react/prop-types": "off",
-    "no-console": "off",
+    "no-console": "off"
   },
   "settings": {
     "import/resolver": {

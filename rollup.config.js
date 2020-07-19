@@ -29,6 +29,7 @@ export default {
     },
   ],
   external: [
+    'react-dom',
     ...Object.keys(pkg.dependencies || {}),
     ...Object.keys(pkg.peerDependencies || {}),
   ],
