@@ -1,8 +1,7 @@
 import { Dispatch, ReducerAction, ReducerState, useReducer } from 'react';
 
-const RESET_STATE = 'RESET';
-
 type StringOrNumber = string | number;
+type Reset = 'RESET';
 type Reducer = (prevState: StringOrNumber, action: string) => any;
 interface Model {
   initialState: any;
@@ -11,9 +10,9 @@ interface Model {
 
 export const createMachineReducer = (model: Model) => (
   currentState: StringOrNumber,
-  action: string
+  action: string | Reset
 ): any => {
-  if (action === RESET_STATE) return model.initialState;
+  if (action === 'RESET') return model.initialState;
 
   const stateTransitions = model.states[currentState];
   if (stateTransitions === undefined) {
