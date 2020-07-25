@@ -6,7 +6,8 @@ import replace from 'rollup-plugin-replace';
 import pkg from './package.json';
 
 export default {
-  input: 'src/index.tsx',
+  // input: 'src/index.ts',
+  input: 'src/sample-app/index.tsx',
   output: [
     {
       file: pkg.main,

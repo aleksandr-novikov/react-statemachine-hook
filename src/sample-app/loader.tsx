@@ -1,6 +1,5 @@
 import React, { useEffect } from 'react';
-import ReactDOM from 'react-dom';
-import { useStateMachine } from './useStateMachine';
+import { useStateMachine } from '../useStateMachine';
 import { loaderModel } from './loaderModel';
 
 const NotLoaded = ({ onLoad }: { onLoad: () => void }) => (
@@ -39,7 +38,7 @@ const Reset = ({ onReset }: { onReset: () => void }) => (
   </div>
 );
 
-const Loader = () => {
+export const Loader: React.FunctionComponent = () => {
   const [currentState, changeState] = useStateMachine(loaderModel);
 
   useEffect(() => {
@@ -63,5 +62,3 @@ const Loader = () => {
       throw new Error(`Cannot render state ${currentState}`);
   }
 };
-
-ReactDOM.render(<Loader />, document.getElementById('main'));

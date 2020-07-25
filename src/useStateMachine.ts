@@ -1,22 +1,28 @@
-import { Dispatch, ReducerAction, ReducerState, useReducer } from 'react';
+import React, { useReducer } from 'react';
 
-type StringOrNumber = string | number;
 type Reset = 'RESET';
-type Reducer = (prevState: StringOrNumber, action: string) => any;
+type Reducer = (prevState: string, action: string) => string;
+interface ModelState {
+  [key: string]: { [key: string]: string };
+}
 interface Model {
-  initialState: any;
-  states: any;
+  initialState: string;
+  states: ModelState;
 }
 
 export const createMachineReducer = (model: Model) => (
-  currentState: StringOrNumber,
+  currentState: string,
   action: string | Reset
-): any => {
+): string => {
   if (action === 'RESET') return model.initialState;
 
   const stateTransitions = model.states[currentState];
   if (stateTransitions === undefined) {
     throw new Error(`No transitions defined for ${currentState}`);
+  }
+
+  if (stateTransitions.constructor !== Object) {
+    throw new Error(`Wrong transitions model: ${stateTransitions}`);
   }
 
   const nextState = stateTransitions[action];
@@ -31,7 +37,10 @@ export const createMachineReducer = (model: Model) => (
 
 export const useStateMachine = (
   model: Model
-): [ReducerState<Reducer>, Dispatch<ReducerAction<Reducer>>] => {
+): [
+  React.ReducerState<Reducer>,
+  React.Dispatch<React.ReducerAction<Reducer>>
+] => {
   if (model.initialState === undefined) {
     throw new Error(`No initialState specified for ${model}`);
   }
