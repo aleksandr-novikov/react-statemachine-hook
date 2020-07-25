@@ -6,18 +6,8 @@ import replace from 'rollup-plugin-replace';
 import pkg from './package.json';
 
 export default {
-  // input: 'src/index.ts',
-  input: 'src/sample-app/index.tsx',
+  input: 'src/index.ts',
   output: [
-    {
-      file: pkg.main,
-      format: 'iife',
-      sourcemap: true,
-      globals: {
-        react: 'React',
-        'react-dom': 'ReactDOM',
-      },
-    },
     {
       file: pkg.module,
       exports: 'named',

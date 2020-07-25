@@ -7,8 +7,8 @@
   "types": "dist/index.d.ts",
   "scripts": {
     "start": "serve",
-    "build:dev": "rollup -c --f iife",
-    "build": "rollup -c --f es",
+    "build:dev": "rollup --config rollup.config.dev.js",
+    "build:prod": "rollup --config rollup.config.js",
     "lint": "eslint 'src/**/*.ts?(x)'",
     "lint:fix": "npm run lint --fix",
     "test": "jest --config=./jest.config.js --passWithNoTests",
