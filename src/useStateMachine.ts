@@ -1,14 +1,5 @@
 import React, { useReducer } from 'react';
-
-type Reset = 'RESET';
-type Reducer = (prevState: string, action: string) => string;
-interface ModelState {
-  [key: string]: { [key: string]: string };
-}
-interface Model {
-  initialState: string;
-  states: ModelState;
-}
+import { Model, Reducer, Reset } from './types';
 
 export const createMachineReducer = (model: Model) => (
   currentState: string,
