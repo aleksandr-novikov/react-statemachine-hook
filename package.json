@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "State Machine Hook for React",
   "main": "dist/build.js",
-  "module": "dist/build.js",
+  "module": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
     "start": "serve",
