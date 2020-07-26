@@ -1,6 +1,6 @@
 {
   "name": "react-statemachine-hook",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "State Machine Hook for React",
   "main": "dist/index.js",
   "module": "dist/index.js",

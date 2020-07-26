@@ -26,6 +26,20 @@ useStateMachine(
            }
 ) => [string, (value: string) => void];
 
+/* 
+  Sample State Machine model
+  There is a one reserved action name called 'RESET' which resets State Machine to initialState
+*/
+const sampleModel = {
+  initialState: 'someState',
+  states: {
+    someState: {
+      ACTION_NAME: 'anotherState',
+    },
+    ...
+  },
+};
+
 ```
 
 ## Usage
@@ -37,10 +51,10 @@ import React, { useEffect } from 'react';
 import { useStateMachine } from 'react-statemachine-hook';
 
 /* 
-Model must contain 2 properties:
-  initialState - initial state of your State Machine
-  states - object containing all possible states as keys with transitions
-           to another states using action names as keys
+  Model must contain 2 properties:
+    initialState - initial state of your State Machine
+    states - object containing all possible states as keys with transitions
+             to another states using action names as keys
 */
 const loaderModel = {
   initialState: 'notLoaded',
@@ -87,6 +101,9 @@ export const Loader: React.FunctionComponent = () => {
           Loaded
           <button type="submit" onClick={() => changeState('LOAD_MORE')}>
             Load more
+          </button>
+          <button type="submit" onClick={() => changeState('RESET')}>
+            Reset
           </button>
         </div>
       );
