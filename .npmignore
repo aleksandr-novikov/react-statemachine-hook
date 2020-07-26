@@ -8,4 +8,5 @@ jest.config.js
 tsconfig.js
 .idea
 rollup.config.js
+rollup.config.dev.js
 tsconfig.json
