@@ -28,7 +28,7 @@ useStateMachine(
 
 /* 
   Sample State Machine model
-  There is a one reserved action name called 'RESET' which resets State Machine to initialState
+  Action name 'RESET' is reserved and resets State Machine to initialState
 */
 const sampleModel = {
   initialState: 'someState',
@@ -44,14 +44,14 @@ const sampleModel = {
 
 ## Usage
 
-Please check out [src/sample-app](src/sample-app) as an example.
+Please check out [src/sample-app](src/sample-app) for a sample app.
 
 ```tsx
 import React, { useEffect } from 'react';
 import { useStateMachine } from 'react-statemachine-hook';
 
 /* 
-  Model must contain 2 properties:
+  Model object must contain 2 properties:
     initialState - initial state of your State Machine
     states - object containing all possible states as keys with transitions
              to another states using action names as keys
@@ -73,8 +73,8 @@ const loaderModel = {
 
 export const Loader: React.FunctionComponent = () => {
   /* 
-    useStateMachine hook returns currentState (model initialState on first render)
-    and changeState method which takes action name and based on it changes currentState.
+    useStateMachine hook returns currentState (initialState on first render)
+    and changeState method which takes an action and changes currentState accordingly.
   */
   const [currentState, changeState] = useStateMachine(loaderModel);
 

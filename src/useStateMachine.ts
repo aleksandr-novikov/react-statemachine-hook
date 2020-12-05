@@ -1,4 +1,4 @@
-import React, { useReducer } from 'react';
+import React, { useMemo, useReducer } from 'react';
 import { Model, Reducer, Reset } from './types';
 
 export const createMachineReducer = (model: Model) => (
@@ -9,17 +9,17 @@ export const createMachineReducer = (model: Model) => (
 
   const stateTransitions = model.states[currentState];
   if (stateTransitions === undefined) {
-    throw new Error(`No transitions defined for ${currentState}`);
+    throw new Error(`No transitions defined for "${currentState}"`);
   }
 
   if (stateTransitions.constructor !== Object) {
-    throw new Error(`Wrong transitions model: ${stateTransitions}`);
+    throw new Error(`Transitions model should be of type object`);
   }
 
   const nextState = stateTransitions[action];
   if (nextState === undefined) {
     throw new Error(
-      `Unknown transition for action ${action} in state ${currentState}`
+      `Unknown transition for action "${action}" in state "${currentState}"`
     );
   }
 
@@ -32,9 +32,19 @@ export const useStateMachine = (
   React.ReducerState<Reducer>,
   React.Dispatch<React.ReducerAction<Reducer>>
 ] => {
-  if (model.initialState === undefined) {
-    throw new Error(`No initialState specified for ${model}`);
+  if (typeof model !== 'object' || model === null) {
+    throw new Error(`No valid model passed to useStateMachine hook`);
   }
 
-  return useReducer(createMachineReducer(model), model.initialState);
+  const { initialState, states } = model;
+  if (initialState === undefined) {
+    throw new Error(`No "initialState" property specified in model`);
+  }
+  if (states === undefined) {
+    throw new Error(`No "states" object specified in model`);
+  }
+
+  const machineReducer = useMemo(() => createMachineReducer(model), [model]);
+
+  return useReducer(machineReducer, initialState);
 };

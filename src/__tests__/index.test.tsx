@@ -110,19 +110,18 @@ describe('useStateMachine hook', () => {
       clickButton(loader, "button[id='invalid']");
     } catch (e) {
       expect(e.message).toBe(
-        `Unknown transition for action INVALID in state notLoaded`
+        `Unknown transition for action "INVALID" in state "notLoaded"`
       );
     }
   });
 
-  test('throws error if no transitions defined', () => {
-    const loader = mount(<Loader model={loaderModel} />);
+  test('throws error if no model was passed', () => {
     try {
-      clickButton(loader, "button[id='not_valid']");
+      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+      // @ts-ignore
+      mount(<Loader model={undefined} />);
     } catch (e) {
-      expect(e.message).toBe(
-        `Unknown transition for action INVALID in state notLoaded`
-      );
+      expect(e.message).toBe(`No valid model passed to useStateMachine hook`);
     }
   });
 });

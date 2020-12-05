@@ -1,12 +1,12 @@
 {
   "name": "react-statemachine-hook",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "State Machine Hook for React",
   "main": "dist/index.js",
   "module": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
-    "start": "serve",
+    "start": "npm run build:dev && serve",
     "build:dev": "rollup --config rollup.config.dev.js",
     "build:prod": "rollup --config rollup.config.js",
     "lint": "eslint 'src/**/*.ts?(x)'",
